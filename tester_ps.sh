@@ -3,7 +3,7 @@
 
 #SETUP
 TESTS=100
-ARG_LEN=1000
+ARG_LEN=100
 CHECKER=./checker_mac
 
 echo -e "\033[1;32mStarting $TESTS tests with $ARG_LEN arguments\033[0m"

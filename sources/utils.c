@@ -1,13 +1,11 @@
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi_smart(const char *str, unsigned long pre_max)
 {
-	unsigned long long	pre_max;
 	unsigned long long	rslt;
 	int					sign;
 	int					i;
 
-	pre_max = 922337203685477580;
 	rslt = 0;
 	sign = 1;
 	i = 0;
@@ -20,12 +18,14 @@ int	ft_atoi(const char *str)
 	{
 		if (sign == 1)
 			if (rslt > pre_max || (rslt == pre_max && str[i] > '7'))
-				return (-1);
+				return (3000000000);
 		if (sign == -1)
 			if (rslt > pre_max || (rslt == pre_max && str[i] > '8'))
-				return (0);
+				return (3000000000);
 		rslt = (rslt * 10) + (str[i++] - '0');
 	}
+	if (str[i] != '\0')
+		return (3000000000);
 	return (rslt * sign);
 }
 
@@ -86,4 +86,26 @@ void	sort_nums(int *nums, int len)
 		}
 		i++;
 	}
+}
+
+int	read_nums(char *argv[], int *nums, int len)
+{
+	long	temp;
+	int		i;
+	int		k;
+
+	i = 0;
+	while (i < len)
+	{
+		temp = ft_atoi_smart(argv[i + 1], 214748364);
+		if (temp == 3000000000)
+			return (1);
+		k = 0;
+		while (k < i)
+			if (nums[k++] == temp)
+				return (2);
+		nums[i] = temp;
+		i++;
+	}
+	return (0);
 }

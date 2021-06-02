@@ -102,7 +102,6 @@ int	quick_sort(t_stack *src, t_stack *dest, int mode)
 
 int	main(int argc, char *argv[])
 {
-	int		i;
 	t_stack	a;
 	t_stack	b;
 
@@ -116,9 +115,13 @@ int	main(int argc, char *argv[])
 	b.len = 0;
 	a.actlen = a.len;
 	b.actlen = b.len;
-	i = a.len;
-	while (i-- > 0)
-		a.nums[i] = ft_atoi(argv[i + 1]);
+	if (read_nums(argv, a.nums, a.len))
+	{
+		write(2, "Error\n", 6);
+		free(a.nums);
+		free(b.nums);
+		return (3);
+	}
 	quick_sort(&a, &b, 1);
 	free(a.nums);
 	free(b.nums);

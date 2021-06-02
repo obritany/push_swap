@@ -44,3 +44,46 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
+
+int	sorted(int *nums, int len, int mode)
+{
+	int	i;
+
+	if (len < 2)
+		return (mode);
+	i = 0;
+	while (nums[i] == nums[i + 1])
+		i++;
+	while (i < len - 1)
+	{
+		if ((mode == 1 && nums[i] > nums[i + 1])
+			|| (mode == -1 && nums[i] < nums[i + 1]))
+			return (0);
+		i++;
+	}
+	return (mode);
+}
+
+void	sort_nums(int *nums, int len)
+{
+	int	i;
+	int	k;
+	int	temp;
+
+	i = 0;
+	while (i < len - 1)
+	{
+		k = 0;
+		while (k < len - i - 1)
+		{
+			if (nums[k] > nums[k + 1])
+			{
+				temp = nums[k + 1];
+				nums[k + 1] = nums[k];
+				nums[k] = temp;
+			}
+			k++;
+		}
+		i++;
+	}
+}

@@ -5,7 +5,7 @@ CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 
 #FILES
-FLS			= push_swap.c utils.c
+FLS			= push_swap.c operations.c utils.c
 SRCS_DIR	= sources/
 HEADER		= $(SRCS_DIR)push_swap.h
 SRCS		= $(addprefix $(SRCS_DIR), $(FLS))

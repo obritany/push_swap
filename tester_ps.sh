@@ -2,8 +2,9 @@
 # To get "shuf" command: brew install coreutils
 
 #SETUP
-TESTS=100
-ARG_LEN=100
+TESTS=1
+ARG_LEN=5
+# CHECKER=./checker/checker
 CHECKER=./checker_mac
 
 echo -e "\033[1;32mStarting $TESTS tests with $ARG_LEN arguments\033[0m"

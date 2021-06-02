@@ -13,7 +13,7 @@ typedef struct s_stack
 
 int		push(t_stack *src, t_stack *dest);
 int		swap(int *nums);
-int		rotate(int *nums, int len, int dir);
+int		rotate(int *nums, int len, int dir, int k);
 
 int		read_nums(char *argv[], int *nums, int len);
 int		sorted(int *nums, int len, int mode);

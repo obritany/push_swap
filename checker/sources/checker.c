@@ -100,7 +100,7 @@ int	main(int argc, char *argv[])
 	if (read_nums(argv, a.nums, a.len) || read_cmds(&a, &b))
 	{
 		write(2, "Error\n", 6);
-		return (3);
+		exit (3);
 	}
 	if (sorted(a.nums, a.len, 1) && b.len == 0)
 		write(1, "OK\n", 3);

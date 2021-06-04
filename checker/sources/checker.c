@@ -25,7 +25,7 @@ int	parse_rotate(char *cmd, t_stack *a, t_stack *b)
 	return (0);
 }
 
-int parse_cmd(char *cmd, t_stack *a, t_stack *b)
+int	parse_cmd(char *cmd, t_stack *a, t_stack *b)
 {
 	if (!ft_strcmp("sa", cmd))
 		swap(a->nums);
@@ -47,14 +47,14 @@ int parse_cmd(char *cmd, t_stack *a, t_stack *b)
 	return (0);
 }
 
-int read_cmds(t_stack *a, t_stack *b)
+int	read_cmds(t_stack *a, t_stack *b)
 {
 	int		len;
 	char	ch;
 	char	buffer[5];
 
 	len = 0;
-	while(read(0, &ch, 1) > 0)
+	while (read(0, &ch, 1) > 0)
 	{
 		buffer[len++] = ch;
 		if (ch == '\n')
@@ -88,8 +88,6 @@ int	main(int argc, char *argv[])
 	if (read_nums(argv, a.nums, a.len) || read_cmds(&a, &b))
 	{
 		write(2, "Error\n", 6);
-		free(a.nums);
-		free(b.nums);
 		return (3);
 	}
 	if (sorted(a.nums, a.len, 1) && b.len == 0)

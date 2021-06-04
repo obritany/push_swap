@@ -2,7 +2,7 @@
 # To get "shuf" command: brew install coreutils
 
 #SETUP
-TESTS=10
+TESTS=100
 ARG_LEN=100
 # CHECKER=./checker/checker
 CHECKER=./checker_mac
